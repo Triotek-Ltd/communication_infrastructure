@@ -1,0 +1,6 @@
+{
+  "submodules": [
+    "gateway_configuration",
+    "message_delivery"
+  ]
+}

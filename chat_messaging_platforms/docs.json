@@ -1,0 +1,7 @@
+{
+  "docs": [
+    "chat_channel_binding",
+    "chat_message_record",
+    "chat_session_record"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "modules": [
+    "chat_messaging_platforms",
+    "email_systems",
+    "sms_messaging",
+    "voice_call_systems"
+  ]
+}

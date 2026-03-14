@@ -1,0 +1,27 @@
+{
+  "doc_key": "sms_gateway",
+  "doc_title": "Sms Gateway",
+  "doc_kind": "configuration",
+  "status": "draft",
+  "module_id": "sms_messaging",
+  "submodule_id": "sms_gateways",
+  "app_id": "communication_infrastructure",
+  "base_action_profile": "base_record_actions",
+  "doc_archetype": "configuration",
+  "classification": {
+    "archetype": "configuration",
+    "bundle": "integration"
+  },
+  "planning_source": {
+    "type": "reference_doc_generation_manifest",
+    "bundle": "integration",
+    "app": "communication_infrastructure",
+    "module": "sms_messaging",
+    "submodule": "sms_gateways",
+    "reference_doc_id": "sms_gateway",
+    "evidence_gaps": [
+      "sender-ID registration rules",
+      "route fallback model"
+    ]
+  }
+}

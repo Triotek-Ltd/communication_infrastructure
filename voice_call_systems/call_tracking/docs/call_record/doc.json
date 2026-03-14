@@ -1,0 +1,27 @@
+{
+  "doc_key": "call_record",
+  "doc_title": "Call Record",
+  "doc_kind": "transaction",
+  "status": "draft",
+  "module_id": "voice_call_systems",
+  "submodule_id": "call_tracking",
+  "app_id": "communication_infrastructure",
+  "base_action_profile": "base_record_actions",
+  "doc_archetype": "transaction",
+  "classification": {
+    "archetype": "transaction",
+    "bundle": "integration"
+  },
+  "planning_source": {
+    "type": "reference_doc_generation_manifest",
+    "bundle": "integration",
+    "app": "communication_infrastructure",
+    "module": "voice_call_systems",
+    "submodule": "call_tracking",
+    "reference_doc_id": "call_record",
+    "evidence_gaps": [
+      "queue-transfer model",
+      "recording/disposition schema"
+    ]
+  }
+}

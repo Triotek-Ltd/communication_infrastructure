@@ -1,0 +1,8 @@
+{
+  "id": "call_tracking",
+  "title": "Call Tracking",
+  "app_id": "communication_infrastructure",
+  "module_id": "voice_call_systems",
+  "type": "submodule",
+  "status": "draft"
+}

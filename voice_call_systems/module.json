@@ -1,0 +1,8 @@
+{
+  "id": "voice_call_systems",
+  "title": "Voice Call Systems",
+  "app_id": "communication_infrastructure",
+  "type": "module",
+  "status": "draft",
+  "supports_submodules": true
+}

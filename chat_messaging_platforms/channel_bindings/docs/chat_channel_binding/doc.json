@@ -1,0 +1,27 @@
+{
+  "doc_key": "chat_channel_binding",
+  "doc_title": "Chat Channel Binding",
+  "doc_kind": "configuration",
+  "status": "draft",
+  "module_id": "chat_messaging_platforms",
+  "submodule_id": "channel_bindings",
+  "app_id": "communication_infrastructure",
+  "base_action_profile": "base_record_actions",
+  "doc_archetype": "configuration",
+  "classification": {
+    "archetype": "configuration",
+    "bundle": "integration"
+  },
+  "planning_source": {
+    "type": "reference_doc_generation_manifest",
+    "bundle": "integration",
+    "app": "communication_infrastructure",
+    "module": "chat_messaging_platforms",
+    "submodule": "channel_bindings",
+    "reference_doc_id": "chat_channel_binding",
+    "evidence_gaps": [
+      "multi-channel binding",
+      "inbound verification rules"
+    ]
+  }
+}

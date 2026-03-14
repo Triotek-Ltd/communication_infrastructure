@@ -1,0 +1,8 @@
+{
+  "id": "message_delivery",
+  "title": "Message Delivery",
+  "app_id": "communication_infrastructure",
+  "module_id": "email_systems",
+  "type": "submodule",
+  "status": "draft"
+}

@@ -1,0 +1,27 @@
+{
+  "doc_key": "voice_provider",
+  "doc_title": "Voice Provider",
+  "doc_kind": "configuration",
+  "status": "draft",
+  "module_id": "voice_call_systems",
+  "submodule_id": "voice_providers",
+  "app_id": "communication_infrastructure",
+  "base_action_profile": "base_record_actions",
+  "doc_archetype": "configuration",
+  "classification": {
+    "archetype": "configuration",
+    "bundle": "integration"
+  },
+  "planning_source": {
+    "type": "reference_doc_generation_manifest",
+    "bundle": "integration",
+    "app": "communication_infrastructure",
+    "module": "voice_call_systems",
+    "submodule": "voice_providers",
+    "reference_doc_id": "voice_provider",
+    "evidence_gaps": [
+      "queue/agent scoping",
+      "recording policy"
+    ]
+  }
+}

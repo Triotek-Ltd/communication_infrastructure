@@ -1,0 +1,6 @@
+{
+  "submodules": [
+    "channel_bindings",
+    "chat_sessions"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "docs": [
+    "email_gateway",
+    "email_template_binding",
+    "email_delivery_event",
+    "email_message_record"
+  ]
+}

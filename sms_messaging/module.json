@@ -1,0 +1,8 @@
+{
+  "id": "sms_messaging",
+  "title": "Sms Messaging",
+  "app_id": "communication_infrastructure",
+  "type": "module",
+  "status": "draft",
+  "supports_submodules": true
+}

@@ -1,0 +1,27 @@
+{
+  "doc_key": "chat_session_record",
+  "doc_title": "Chat Session Record",
+  "doc_kind": "workflow_case",
+  "status": "draft",
+  "module_id": "chat_messaging_platforms",
+  "submodule_id": "chat_sessions",
+  "app_id": "communication_infrastructure",
+  "base_action_profile": "base_record_actions",
+  "doc_archetype": "workflow_case",
+  "classification": {
+    "archetype": "workflow_case",
+    "bundle": "integration"
+  },
+  "planning_source": {
+    "type": "reference_doc_generation_manifest",
+    "bundle": "integration",
+    "app": "communication_infrastructure",
+    "module": "chat_messaging_platforms",
+    "submodule": "chat_sessions",
+    "reference_doc_id": "chat_session_record",
+    "evidence_gaps": [
+      "session-timeout rules",
+      "routing logic"
+    ]
+  }
+}

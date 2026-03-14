@@ -1,0 +1,8 @@
+{
+  "id": "sms_gateways",
+  "title": "Sms Gateways",
+  "app_id": "communication_infrastructure",
+  "module_id": "sms_messaging",
+  "type": "submodule",
+  "status": "draft"
+}

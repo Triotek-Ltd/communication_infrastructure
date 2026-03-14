@@ -1,0 +1,27 @@
+{
+  "doc_key": "email_message_record",
+  "doc_title": "Email Message Record",
+  "doc_kind": "transaction",
+  "status": "draft",
+  "module_id": "email_systems",
+  "submodule_id": "message_delivery",
+  "app_id": "communication_infrastructure",
+  "base_action_profile": "base_record_actions",
+  "doc_archetype": "transaction",
+  "classification": {
+    "archetype": "transaction",
+    "bundle": "integration"
+  },
+  "planning_source": {
+    "type": "reference_doc_generation_manifest",
+    "bundle": "integration",
+    "app": "communication_infrastructure",
+    "module": "email_systems",
+    "submodule": "message_delivery",
+    "reference_doc_id": "email_message_record",
+    "evidence_gaps": [
+      "attachment schema",
+      "inbound-threading model"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "id": "chat_sessions",
+  "title": "Chat Sessions",
+  "app_id": "communication_infrastructure",
+  "module_id": "chat_messaging_platforms",
+  "type": "submodule",
+  "status": "draft"
+}

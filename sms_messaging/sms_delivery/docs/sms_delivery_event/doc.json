@@ -1,0 +1,27 @@
+{
+  "doc_key": "sms_delivery_event",
+  "doc_title": "Sms Delivery Event",
+  "doc_kind": "ledger",
+  "status": "draft",
+  "module_id": "sms_messaging",
+  "submodule_id": "sms_delivery",
+  "app_id": "communication_infrastructure",
+  "base_action_profile": "base_record_actions",
+  "doc_archetype": "ledger",
+  "classification": {
+    "archetype": "ledger",
+    "bundle": "integration"
+  },
+  "planning_source": {
+    "type": "reference_doc_generation_manifest",
+    "bundle": "integration",
+    "app": "communication_infrastructure",
+    "module": "sms_messaging",
+    "submodule": "sms_delivery",
+    "reference_doc_id": "sms_delivery_event",
+    "evidence_gaps": [
+      "final-status taxonomy",
+      "retry trigger rules"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "doc_key": "sms_message_record",
+  "doc_title": "Sms Message Record",
+  "doc_kind": "transaction",
+  "status": "draft",
+  "module_id": "sms_messaging",
+  "submodule_id": "sms_delivery",
+  "app_id": "communication_infrastructure",
+  "base_action_profile": "base_record_actions",
+  "doc_archetype": "transaction",
+  "classification": {
+    "archetype": "transaction",
+    "bundle": "integration"
+  },
+  "planning_source": {
+    "type": "reference_doc_generation_manifest",
+    "bundle": "integration",
+    "app": "communication_infrastructure",
+    "module": "sms_messaging",
+    "submodule": "sms_delivery",
+    "reference_doc_id": "sms_message_record",
+    "evidence_gaps": [
+      "concatenation handling",
+      "opt-out/compliance rules"
+    ]
+  }
+}

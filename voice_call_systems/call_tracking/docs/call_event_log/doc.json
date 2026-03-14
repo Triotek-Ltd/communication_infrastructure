@@ -1,0 +1,27 @@
+{
+  "doc_key": "call_event_log",
+  "doc_title": "Call Event Log",
+  "doc_kind": "ledger",
+  "status": "draft",
+  "module_id": "voice_call_systems",
+  "submodule_id": "call_tracking",
+  "app_id": "communication_infrastructure",
+  "base_action_profile": "base_record_actions",
+  "doc_archetype": "ledger",
+  "classification": {
+    "archetype": "ledger",
+    "bundle": "integration"
+  },
+  "planning_source": {
+    "type": "reference_doc_generation_manifest",
+    "bundle": "integration",
+    "app": "communication_infrastructure",
+    "module": "voice_call_systems",
+    "submodule": "call_tracking",
+    "reference_doc_id": "call_event_log",
+    "evidence_gaps": [
+      "event-ordering",
+      "retry/replay behavior"
+    ]
+  }
+}

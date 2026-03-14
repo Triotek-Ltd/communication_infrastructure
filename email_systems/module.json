@@ -1,0 +1,8 @@
+{
+  "id": "email_systems",
+  "title": "Email Systems",
+  "app_id": "communication_infrastructure",
+  "type": "module",
+  "status": "draft",
+  "supports_submodules": true
+}
