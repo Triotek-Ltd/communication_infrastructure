@@ -72,7 +72,9 @@
         "delivery_state"
       ],
       "relations": [
-        "gateway"
+        "gateway",
+        "related_sms_delivery_event",
+        "related_service_case"
       ],
       "amounts": [
         "currency",
@@ -481,6 +483,54 @@
           "filterable": true,
           "sortable": true
         }
+      },
+      {
+        "field_id": "related_sms_delivery_event",
+        "label": "Related Sms Delivery Event",
+        "type": "Table MultiSelect",
+        "required": false,
+        "read_only": false,
+        "default": null,
+        "unique": false,
+        "options": null,
+        "purpose": "relation_collection",
+        "linked_doc": "sms_delivery_event",
+        "depends_on": null,
+        "mandatory_depends_on": null,
+        "read_only_depends_on": null,
+        "fetch_from": null,
+        "allow_on_submit": false,
+        "indexed": false,
+        "ui": {
+          "visible": false,
+          "list_visible": false,
+          "filterable": false,
+          "sortable": false
+        }
+      },
+      {
+        "field_id": "related_service_case",
+        "label": "Related Service Case",
+        "type": "Table MultiSelect",
+        "required": false,
+        "read_only": false,
+        "default": null,
+        "unique": false,
+        "options": null,
+        "purpose": "relation_collection",
+        "linked_doc": "service_case",
+        "depends_on": null,
+        "mandatory_depends_on": null,
+        "read_only_depends_on": null,
+        "fetch_from": null,
+        "allow_on_submit": false,
+        "indexed": false,
+        "ui": {
+          "visible": false,
+          "list_visible": false,
+          "filterable": false,
+          "sortable": false
+        }
       }
     ],
     "title_field": "title",
@@ -591,16 +641,29 @@
       {
         "role_id": "System Manager",
         "actions": [
-          "create",
-          "update",
           "view",
           "list",
-          "record",
-          "review",
-          "assign",
-          "track",
-          "monitor",
-          "confirm",
+          "create",
+          "queue",
+          "send",
+          "retry",
+          "fail",
+          "archive"
+        ]
+      },
+      {
+        "role_id": "operations coordinator",
+        "actions": [
+          "view",
+          "list",
+          "create"
+        ]
+      },
+      {
+        "role_id": "case owner",
+        "actions": [
+          "view",
+          "list",
           "archive"
         ]
       }
@@ -685,7 +748,20 @@
         "show_in_related_panel": true
       }
     ],
-    "lookup_rules": [],
+    "lookup_rules": [
+      {
+        "field_id": "related_sms_delivery_event",
+        "doc_id": "sms_delivery_event",
+        "lookup_mode": "multiple",
+        "purpose": "relation_collection"
+      },
+      {
+        "field_id": "related_service_case",
+        "doc_id": "service_case",
+        "lookup_mode": "multiple",
+        "purpose": "relation_collection"
+      }
+    ],
     "fetch_rules": [],
     "reference_map": {
       "primary_reference_field": "reference_no",
@@ -693,7 +769,10 @@
     },
     "relation_rules": {
       "parent_doc": null,
-      "child_docs": [],
+      "child_docs": [
+        "sms_delivery_event",
+        "service_case"
+      ],
       "show_related_panel": true
     },
     "borrowed_fields": [
@@ -714,7 +793,36 @@
     "runtime_hints": {
       "doc_key": "sms_message_record",
       "supports_related_lookup": true,
-      "supports_fetch_rules": true
+      "supports_fetch_rules": true,
+      "workflow_hints": {
+        "relation_context": {
+          "related_docs": [
+            "sms_gateway",
+            "sms_delivery_event",
+            "service_case"
+          ],
+          "borrowed_fields": [
+            "gateway identity from sms_gateway"
+          ],
+          "inferred_roles": [
+            "operations coordinator",
+            "case owner"
+          ]
+        },
+        "actors": [
+          "operations coordinator",
+          "case owner"
+        ],
+        "action_actors": {
+          "create": [
+            "operations coordinator"
+          ],
+          "archive": [
+            "case owner"
+          ]
+        }
+      },
+      "action_side_effects_file": "side_effects.json"
     }
   },
   "classification": {
@@ -794,6 +902,9 @@
       "reports": "reports/service.py",
       "integrations": "integrations/service.py"
     },
+    "runtime_contract": {
+      "side_effects_file": "side_effects.json"
+    },
     "action_handlers": {
       "base_dir": "actions",
       "registry": "actions/registry.py",
@@ -812,6 +923,32 @@
       "doc_kind": "transaction"
     }
   },
+  "testing": {
+    "seeded": true,
+    "api_base_path": "/apis/communication_infrastructure/sms_messaging/sms_delivery/sms_message_record/",
+    "status_field": "workflow_state",
+    "initial_state": "created",
+    "required_fields": [
+      "title",
+      "workflow_state",
+      "transaction_date"
+    ],
+    "transition_scenarios": [
+      {
+        "action_id": "archive",
+        "source_state": "created",
+        "target_state": "archived",
+        "disallowed_state": "archived"
+      }
+    ],
+    "related_docs": [
+      "sms_gateway",
+      "sms_delivery_event",
+      "service_case"
+    ],
+    "downstream_effects": [],
+    "action_side_effects_file": "side_effects.json"
+  },
   "runtime": {
     "source_of_truth": "doc_folder",
     "generated_from": [
@@ -819,7 +956,8 @@
       "schema.json",
       "actions.json",
       "settings.json",
-      "logic_seed.json"
+      "logic_seed.json",
+      "side_effects.json"
     ],
     "generator": "plug.apps.doc.file_handler"
   }

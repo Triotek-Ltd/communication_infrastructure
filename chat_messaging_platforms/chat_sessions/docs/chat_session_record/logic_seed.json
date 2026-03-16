@@ -63,7 +63,9 @@
     "field_purposes": {
       "workflow_state": "lifecycle_state",
       "session_opened_at": "schedule_marker",
-      "session_status": "status_flag"
+      "session_status": "status_flag",
+      "related_chat_message_record": "relation_collection",
+      "related_service_case": "relation_collection"
     },
     "search_fields": [
       "title",
@@ -101,7 +103,40 @@
       "archive": "archived"
     }
   },
-  "workflow_hints": {},
+  "workflow_hints": {
+    "relation_context": {
+      "related_docs": [
+        "chat_channel_binding",
+        "chat_message_record",
+        "service_case"
+      ],
+      "borrowed_fields": [
+        "participant/channel context from linked docs"
+      ],
+      "inferred_roles": [
+        "case owner"
+      ]
+    },
+    "actors": [
+      "case owner"
+    ],
+    "action_actors": {
+      "create": [
+        "case owner"
+      ],
+      "assign": [
+        "case owner"
+      ],
+      "close": [
+        "case owner"
+      ],
+      "archive": [
+        "case owner"
+      ]
+    }
+  },
+  "downstream_effects": [],
+  "action_side_effects_file": "side_effects.json",
   "related_docs": [
     "chat_channel_binding",
     "chat_message_record",

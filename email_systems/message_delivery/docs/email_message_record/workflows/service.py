@@ -11,7 +11,7 @@ TERMINAL_STATES = ['archived']
 ACTION_RULES = {'create': {'allowed_in_states': ['created', 'queued', 'sent', 'delivered', 'bounced', 'failed'], 'transitions_to': None}, 'queue': {'allowed_in_states': ['created', 'queued', 'sent', 'delivered', 'bounced', 'failed'], 'transitions_to': None}, 'send': {'allowed_in_states': ['created', 'queued', 'sent', 'delivered', 'bounced', 'failed'], 'transitions_to': None}, 'retry': {'allowed_in_states': ['created', 'queued', 'sent', 'delivered', 'bounced', 'failed'], 'transitions_to': None}, 'fail': {'allowed_in_states': ['created', 'queued', 'sent', 'delivered', 'bounced', 'failed'], 'transitions_to': None}, 'archive': {'allowed_in_states': ['created', 'queued', 'sent', 'delivered', 'bounced', 'failed'], 'transitions_to': 'archived'}}
 
 STATE_FIELD = 'workflow_state'
-WORKFLOW_HINTS = {}
+WORKFLOW_HINTS = {'relation_context': {'related_docs': ['email_gateway', 'email_delivery_event', 'email_template_binding', 'correspondence_record'], 'borrowed_fields': ['gateway identity from email_gateway', 'template refs from email_template_binding'], 'inferred_roles': ['operations coordinator']}, 'actors': ['operations coordinator'], 'action_actors': {'create': ['operations coordinator'], 'archive': ['operations coordinator']}}
 
 class WorkflowService:
     def allowed_actions_for_state(self, state: str | None) -> list[str]:

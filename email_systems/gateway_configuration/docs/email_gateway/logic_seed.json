@@ -55,7 +55,10 @@
     ],
     "field_purposes": {
       "workflow_state": "lifecycle_state",
-      "active_status": "status_flag"
+      "active_status": "status_flag",
+      "related_email_message_record": "relation_collection",
+      "related_email_delivery_event": "relation_collection",
+      "related_email_template_binding": "relation_collection"
     },
     "search_fields": [
       "title",
@@ -89,7 +92,40 @@
       "archive": "archived"
     }
   },
-  "workflow_hints": {},
+  "workflow_hints": {
+    "relation_context": {
+      "related_docs": [
+        "email_message_record",
+        "email_delivery_event",
+        "email_template_binding"
+      ],
+      "borrowed_fields": [
+        "sender domain/mailbox from account setup where linked"
+      ],
+      "inferred_roles": [
+        "operations coordinator"
+      ]
+    },
+    "actors": [
+      "operations coordinator"
+    ],
+    "action_actors": {
+      "create": [
+        "operations coordinator"
+      ],
+      "verify": [
+        "operations coordinator"
+      ],
+      "activate": [
+        "operations coordinator"
+      ],
+      "archive": [
+        "operations coordinator"
+      ]
+    }
+  },
+  "downstream_effects": [],
+  "action_side_effects_file": "side_effects.json",
   "related_docs": [
     "email_message_record",
     "email_delivery_event",

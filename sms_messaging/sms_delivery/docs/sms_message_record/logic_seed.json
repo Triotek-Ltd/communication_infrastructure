@@ -65,7 +65,9 @@
       "transaction_date": "transaction_date",
       "party": "primary_party",
       "currency": "currency_code",
-      "total_amount": "total_amount"
+      "total_amount": "total_amount",
+      "related_sms_delivery_event": "relation_collection",
+      "related_service_case": "relation_collection"
     },
     "search_fields": [
       "title",
@@ -104,7 +106,36 @@
       "archive": "archived"
     }
   },
-  "workflow_hints": {},
+  "workflow_hints": {
+    "relation_context": {
+      "related_docs": [
+        "sms_gateway",
+        "sms_delivery_event",
+        "service_case"
+      ],
+      "borrowed_fields": [
+        "gateway identity from sms_gateway"
+      ],
+      "inferred_roles": [
+        "operations coordinator",
+        "case owner"
+      ]
+    },
+    "actors": [
+      "operations coordinator",
+      "case owner"
+    ],
+    "action_actors": {
+      "create": [
+        "operations coordinator"
+      ],
+      "archive": [
+        "case owner"
+      ]
+    }
+  },
+  "downstream_effects": [],
+  "action_side_effects_file": "side_effects.json",
   "related_docs": [
     "sms_gateway",
     "sms_delivery_event",

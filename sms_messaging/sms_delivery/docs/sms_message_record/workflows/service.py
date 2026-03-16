@@ -11,7 +11,7 @@ TERMINAL_STATES = ['archived']
 ACTION_RULES = {'create': {'allowed_in_states': ['created', 'queued', 'sent', 'delivered', 'failed'], 'transitions_to': None}, 'queue': {'allowed_in_states': ['created', 'queued', 'sent', 'delivered', 'failed'], 'transitions_to': None}, 'send': {'allowed_in_states': ['created', 'queued', 'sent', 'delivered', 'failed'], 'transitions_to': None}, 'retry': {'allowed_in_states': ['created', 'queued', 'sent', 'delivered', 'failed'], 'transitions_to': None}, 'fail': {'allowed_in_states': ['created', 'queued', 'sent', 'delivered', 'failed'], 'transitions_to': None}, 'archive': {'allowed_in_states': ['created', 'queued', 'sent', 'delivered', 'failed'], 'transitions_to': 'archived'}}
 
 STATE_FIELD = 'workflow_state'
-WORKFLOW_HINTS = {}
+WORKFLOW_HINTS = {'relation_context': {'related_docs': ['sms_gateway', 'sms_delivery_event', 'service_case'], 'borrowed_fields': ['gateway identity from sms_gateway'], 'inferred_roles': ['operations coordinator', 'case owner']}, 'actors': ['operations coordinator', 'case owner'], 'action_actors': {'create': ['operations coordinator'], 'archive': ['case owner']}}
 
 class WorkflowService:
     def allowed_actions_for_state(self, state: str | None) -> list[str]:

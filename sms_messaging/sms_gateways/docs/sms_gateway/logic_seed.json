@@ -55,7 +55,9 @@
     ],
     "field_purposes": {
       "workflow_state": "lifecycle_state",
-      "active_status": "status_flag"
+      "active_status": "status_flag",
+      "related_sms_message_record": "relation_collection",
+      "related_sms_delivery_event": "relation_collection"
     },
     "search_fields": [
       "title",
@@ -89,7 +91,39 @@
       "archive": "archived"
     }
   },
-  "workflow_hints": {},
+  "workflow_hints": {
+    "relation_context": {
+      "related_docs": [
+        "sms_message_record",
+        "sms_delivery_event"
+      ],
+      "borrowed_fields": [
+        "sender context from communication setup"
+      ],
+      "inferred_roles": [
+        "operations coordinator"
+      ]
+    },
+    "actors": [
+      "operations coordinator"
+    ],
+    "action_actors": {
+      "create": [
+        "operations coordinator"
+      ],
+      "verify": [
+        "operations coordinator"
+      ],
+      "activate": [
+        "operations coordinator"
+      ],
+      "archive": [
+        "operations coordinator"
+      ]
+    }
+  },
+  "downstream_effects": [],
+  "action_side_effects_file": "side_effects.json",
   "related_docs": [
     "sms_message_record",
     "sms_delivery_event"

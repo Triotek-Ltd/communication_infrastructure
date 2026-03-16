@@ -8,7 +8,7 @@ ACTION_ID = "queue"
 ACTION_RULE = {'allowed_in_states': ['created', 'queued', 'sent', 'delivered', 'bounced', 'failed'], 'transitions_to': None}
 
 STATE_FIELD = 'workflow_state'
-WORKFLOW_HINTS = {}
+WORKFLOW_HINTS = {'relation_context': {'related_docs': ['email_gateway', 'email_delivery_event', 'email_template_binding', 'correspondence_record'], 'borrowed_fields': ['gateway identity from email_gateway', 'template refs from email_template_binding'], 'inferred_roles': ['operations coordinator']}, 'actors': ['operations coordinator'], 'action_actors': {'create': ['operations coordinator'], 'archive': ['operations coordinator']}}
 
 def handle_queue(payload: dict, context: dict | None = None) -> dict:
     context = context or {}

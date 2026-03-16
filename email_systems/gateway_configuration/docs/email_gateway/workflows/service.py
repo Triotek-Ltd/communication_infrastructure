@@ -11,7 +11,7 @@ TERMINAL_STATES = ['archived']
 ACTION_RULES = {'create': {'allowed_in_states': ['draft', 'verified', 'active'], 'transitions_to': None}, 'verify': {'allowed_in_states': ['draft', 'verified', 'active'], 'transitions_to': None}, 'activate': {'allowed_in_states': ['draft'], 'transitions_to': 'active'}, 'disable': {'allowed_in_states': ['draft', 'verified', 'active'], 'transitions_to': None}, 'archive': {'allowed_in_states': ['draft', 'verified', 'active'], 'transitions_to': 'archived'}}
 
 STATE_FIELD = 'workflow_state'
-WORKFLOW_HINTS = {}
+WORKFLOW_HINTS = {'relation_context': {'related_docs': ['email_message_record', 'email_delivery_event', 'email_template_binding'], 'borrowed_fields': ['sender domain/mailbox from account setup where linked'], 'inferred_roles': ['operations coordinator']}, 'actors': ['operations coordinator'], 'action_actors': {'create': ['operations coordinator'], 'verify': ['operations coordinator'], 'activate': ['operations coordinator'], 'archive': ['operations coordinator']}}
 
 class WorkflowService:
     def allowed_actions_for_state(self, state: str | None) -> list[str]:

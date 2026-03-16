@@ -8,7 +8,7 @@ ACTION_ID = "create"
 ACTION_RULE = {'allowed_in_states': ['draft', 'verified', 'active'], 'transitions_to': None}
 
 STATE_FIELD = 'workflow_state'
-WORKFLOW_HINTS = {}
+WORKFLOW_HINTS = {'relation_context': {'related_docs': ['email_message_record', 'email_delivery_event', 'email_template_binding'], 'borrowed_fields': ['sender domain/mailbox from account setup where linked'], 'inferred_roles': ['operations coordinator']}, 'actors': ['operations coordinator'], 'action_actors': {'create': ['operations coordinator'], 'verify': ['operations coordinator'], 'activate': ['operations coordinator'], 'archive': ['operations coordinator']}}
 
 def handle_create(payload: dict, context: dict | None = None) -> dict:
     context = context or {}

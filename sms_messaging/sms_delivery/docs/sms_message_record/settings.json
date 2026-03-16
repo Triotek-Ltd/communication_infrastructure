@@ -30,7 +30,20 @@
       "show_in_related_panel": true
     }
   ],
-  "lookup_rules": [],
+  "lookup_rules": [
+    {
+      "field_id": "related_sms_delivery_event",
+      "doc_id": "sms_delivery_event",
+      "lookup_mode": "multiple",
+      "purpose": "relation_collection"
+    },
+    {
+      "field_id": "related_service_case",
+      "doc_id": "service_case",
+      "lookup_mode": "multiple",
+      "purpose": "relation_collection"
+    }
+  ],
   "fetch_rules": [],
   "reference_map": {
     "primary_reference_field": "reference_no",
@@ -38,7 +51,10 @@
   },
   "relation_rules": {
     "parent_doc": null,
-    "child_docs": [],
+    "child_docs": [
+      "sms_delivery_event",
+      "service_case"
+    ],
     "show_related_panel": true
   },
   "borrowed_fields": [
@@ -59,6 +75,35 @@
   "runtime_hints": {
     "doc_key": "sms_message_record",
     "supports_related_lookup": true,
-    "supports_fetch_rules": true
+    "supports_fetch_rules": true,
+    "workflow_hints": {
+      "relation_context": {
+        "related_docs": [
+          "sms_gateway",
+          "sms_delivery_event",
+          "service_case"
+        ],
+        "borrowed_fields": [
+          "gateway identity from sms_gateway"
+        ],
+        "inferred_roles": [
+          "operations coordinator",
+          "case owner"
+        ]
+      },
+      "actors": [
+        "operations coordinator",
+        "case owner"
+      ],
+      "action_actors": {
+        "create": [
+          "operations coordinator"
+        ],
+        "archive": [
+          "case owner"
+        ]
+      }
+    },
+    "action_side_effects_file": "side_effects.json"
   }
 }

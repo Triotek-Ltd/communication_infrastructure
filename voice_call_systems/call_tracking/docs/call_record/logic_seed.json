@@ -68,7 +68,9 @@
       "party": "primary_party",
       "currency": "currency_code",
       "total_amount": "total_amount",
-      "call_status": "status_flag"
+      "call_status": "status_flag",
+      "related_call_event_log": "relation_collection",
+      "related_service_case": "relation_collection"
     },
     "search_fields": [
       "title",
@@ -108,7 +110,35 @@
       "archive": "archived"
     }
   },
-  "workflow_hints": {},
+  "workflow_hints": {
+    "relation_context": {
+      "related_docs": [
+        "voice_provider",
+        "call_event_log",
+        "service_case"
+      ],
+      "borrowed_fields": [
+        "provider",
+        "number context from voice_provider"
+      ],
+      "inferred_roles": [
+        "case owner"
+      ]
+    },
+    "actors": [
+      "case owner"
+    ],
+    "action_actors": {
+      "create": [
+        "case owner"
+      ],
+      "archive": [
+        "case owner"
+      ]
+    }
+  },
+  "downstream_effects": [],
+  "action_side_effects_file": "side_effects.json",
   "related_docs": [
     "voice_provider",
     "call_event_log",

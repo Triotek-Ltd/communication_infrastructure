@@ -56,7 +56,9 @@
     ],
     "field_purposes": {
       "workflow_state": "lifecycle_state",
-      "posting_date": "posting_date"
+      "posting_date": "posting_date",
+      "related_email_message_record": "relation_collection",
+      "related_email_gateway": "relation_collection"
     },
     "search_fields": [
       "title",
@@ -89,7 +91,33 @@
       "archive": "archived"
     }
   },
-  "workflow_hints": {},
+  "workflow_hints": {
+    "relation_context": {
+      "related_docs": [
+        "email_message_record",
+        "email_gateway"
+      ],
+      "borrowed_fields": [
+        "provider/message context from linked records"
+      ],
+      "inferred_roles": [
+        "operations coordinator"
+      ]
+    },
+    "actors": [
+      "operations coordinator"
+    ],
+    "action_actors": {
+      "record": [
+        "operations coordinator"
+      ],
+      "archive": [
+        "operations coordinator"
+      ]
+    }
+  },
+  "downstream_effects": [],
+  "action_side_effects_file": "side_effects.json",
   "related_docs": [
     "email_message_record",
     "email_gateway"

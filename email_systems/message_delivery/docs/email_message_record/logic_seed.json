@@ -67,7 +67,10 @@
       "transaction_date": "transaction_date",
       "party": "primary_party",
       "currency": "currency_code",
-      "total_amount": "total_amount"
+      "total_amount": "total_amount",
+      "related_email_delivery_event": "relation_collection",
+      "related_email_template_binding": "relation_collection",
+      "related_correspondence_record": "relation_collection"
     },
     "search_fields": [
       "title",
@@ -107,7 +110,36 @@
       "archive": "archived"
     }
   },
-  "workflow_hints": {},
+  "workflow_hints": {
+    "relation_context": {
+      "related_docs": [
+        "email_gateway",
+        "email_delivery_event",
+        "email_template_binding",
+        "correspondence_record"
+      ],
+      "borrowed_fields": [
+        "gateway identity from email_gateway",
+        "template refs from email_template_binding"
+      ],
+      "inferred_roles": [
+        "operations coordinator"
+      ]
+    },
+    "actors": [
+      "operations coordinator"
+    ],
+    "action_actors": {
+      "create": [
+        "operations coordinator"
+      ],
+      "archive": [
+        "operations coordinator"
+      ]
+    }
+  },
+  "downstream_effects": [],
+  "action_side_effects_file": "side_effects.json",
   "related_docs": [
     "email_gateway",
     "email_delivery_event",
